@@ -1,0 +1,11 @@
+<h1>List of Insurance Services</h1>
+
+<% @insuranceservices.each do |insuranceservice| %>
+    <h2><%= link_to insuranceservice.name, "insuranceservices/#{insuranceservice.id}" %></h2>
+    <p><%= insuranceservice.description %></p>
+    <p>Price: <%= insuranceservice.price %></p>
+<% end %>
+
+<% if current_user && current_user.is_company %>
+  <%= button_to "Add a new service", "insuranceservices/new", class: "btn btn-primary", method: :get %>
+<% end %>

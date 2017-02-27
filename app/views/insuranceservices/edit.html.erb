@@ -1,0 +1,23 @@
+<h1>Update Service</h1>
+<%= form_tag "/insuranceservices/#{@insuranceservice.id}", method: :patch do %>
+  <div>
+    Service Name:<input type="text" name="name" value="<%= @insuranceservice.name %>">
+  </div>
+  <div>
+    Description:<input type="text" name="description" value="<%= @insuranceservice.description %>">
+  </div>
+  <div>
+    Price:<input type="text" name="price" value="<%= @insuranceservice.price %>">
+  </div>
+  <div>
+    Company name:
+    <select name="company_id">
+     <option selected="<%= @insuranceservice.company_id %>" disabled selected><%= @insuranceservice.company.name %></option>
+       <% @companies.each do |company| %>
+         <option value="<%= company.id %>"><%= company.name %></option>
+       <% end %>
+  </div>
+  <div>
+    <input type="submit" value="Update">
+  </div>
+<% end %>

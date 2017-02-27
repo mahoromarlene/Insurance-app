@@ -1,0 +1,13 @@
+<h1>Company: <%= @company.name %></h1>
+<h2>Who we are</h2>
+<p><%= @company.description %></p>
+
+<h2>Services We provide:</h2>
+<li>
+<% @company.insurance_services.each do |insuranceservice| %>
+  <%= link_to insuranceservice.name, "insuranceservices/#{insuranceservice.id}" %>
+<% end %>
+
+<% if current_user && current_user.is_company %>
+  <%= button_to "Edit Company", "/companies/#{@company.id}/edit", class: "btn btn-primary", method: :get %>
+<% end %>

@@ -1,0 +1,5 @@
+class RemoceCompanyIdFromRequest < ActiveRecord::Migration[5.0]
+  def change
+    remove_column :requests, :company_id, :integer
+  end
+end
