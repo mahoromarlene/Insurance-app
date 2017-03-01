@@ -10,6 +10,7 @@ class CompaniesController < ApplicationController
   end
 
   def new
+    @company = Company.new
   end
 
   def create
@@ -24,8 +25,8 @@ class CompaniesController < ApplicationController
 
   def update
     @company = Company.find_by(id: params[:id])
-    company.name = params[:name]
-    company.description = params[:description]
+    @company.name = params[:name]
+    @company.description = params[:description]
     @company.save
     redirect_to "/companies/#{@company.id}"
   end

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "/companies/:id", to: 'companies#show'
   post "/companies", to: 'companies#create'
   get "/companies/:id/edit", to: 'companies#edit'
-  patch "/companies/:id", to: 'companies#create'
+  patch "/companies/:id", to: 'companies#update'
   delete "/companies/:id", to: 'companies#destroy'
   get "/companies/insuranceservices/:id", to: "insuranceservices#show"
 
