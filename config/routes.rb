@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  get "/", to: 'companies#index'
+
+  get "/", to: 'welcome#index'
+
+  get "/dashboard/new", to: 'dashboards#new'
+  get "/dashboard/:id", to: 'dashboards#show'
+  post "/dashboard", to: 'dashboards#create'
+
   get "/companies", to: 'companies#index'
   get "/companies/new", to: 'companies#new'
   post "/companies/search", to: 'companies#search'
@@ -15,7 +21,7 @@ Rails.application.routes.draw do
   get "/insuranceservices/:id", to: 'insuranceservices#show'
   post "/insuranceservices", to: 'insuranceservices#create'
   get "/insuranceservices/:id/edit", to: 'insuranceservices#edit'
-  patch "/insuranceservices/:id", to: 'insuranceservices#create'
+  patch "/insuranceservices/:id", to: 'insuranceservices#update'
   delete "/insuranceservices/:id", to: 'insuranceservices#destroy'
 
   get "/signup", to: 'users#new'
@@ -25,8 +31,6 @@ Rails.application.routes.draw do
   post "/login" => "sessions#create"
   delete "/logout" => "sessions#destroy"
 
-  get "requests/new", to: 'requests#new'
-  post "requests", to: 'requests#create'
-
-
+  resources :requests
+  
 end

@@ -1,23 +1,17 @@
-<h1>Sign Up</h1>
+<link rel="stylesheet" type="text/css" href="users.scss">
+<div id="user" class="container">
+  <div class="col-md-6">
+    <div id="logbox">
+      <%= form_tag '/users', method: :post do %>
+      <h1>Sign Up</h1>
+      <input type="text" name="first_name" placeholder="First name" required="required" class="input pass">
+      <input type="text" name="last_name" placeholder="Last name" required="required" class="input pass">
+      <input type="email" name="email" placeholder="Email address" required="required" class="input pass">
+      <input type="password" name="password" placeholder="Choose a password" required="required" class="input pass">
+      <input type="password" name="password_confirmation" placeholder="Confirm password" required="required" class="input pass">
+      <input type="submit" value="Create account" class="inputButton">
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<%= form_tag '/users', method: :post do %>
-
-  <div>
-    First Name: <input type="text" name="first_name">
-  </div>
-  <div>
-    Last Name: <input type="text" name="last_name">
-  </div>
-  <div>
-    Email: <input type="email" name="email">
-  </div>
-  <div>
-    Password: <input type="password" name="password">
-  </div>
-  <div>
-    Confirm password: <input type="password" name="password_confirmation">
-  </div>
-  <div>
-    <input type="submit" value="Create account">
-  </div>
-<% end %>

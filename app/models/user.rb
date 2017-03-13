@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_one :company
+  has_one :dashboard
   has_many :insurance_services, through: :request
 
   validates :first_name, presence: {message: "First_name is required"}

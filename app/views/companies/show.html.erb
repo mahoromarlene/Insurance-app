@@ -10,4 +10,5 @@
 
 <% if current_user && current_user.is_company %>
   <%= button_to "Edit Company", "/companies/#{@company.id}/edit", class: "btn btn-primary", method: :get %>
+  <%= button_to "Add a new service", "insuranceservices/new", class: "btn btn-primary", method: :get %>
 <% end %>
