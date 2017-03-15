@@ -6,7 +6,7 @@
       <div class="row">
       <div class="col-md-1"></div>
         <div class="col-md-10">
-          <h1 class="page-header">Hello <%= @dashboard.user.first_name %></h1>
+          <h1 class="page-header">Hello <%= current_user.first_name%></h1>
 
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
@@ -31,41 +31,27 @@
             </div>
           </div>
 
-          <h2 class="sub-header">Section title</h2>
+          <h2 class="sub-header">Activities</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>No</th>
+                  <th>Request No</th>
                   <th>Insurance Service</th>
                   <th>Company</th>
-                  <th>Header</th>
-                  <th>Date</th>
+                  <th>Date Created</th>
+                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>
+              <% current_user.requests.each do |request| %>
                 <tr>
-                  <td>
-                  if user.request =! nil<%= @request.id%></td>
-                  <td></td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
+                  <td><%= link_to request.id, "/requests/#{request.id}" %></td>
+                  <td><%= request.insurance_service.name %></td>
+                  <td><%= request.insurance_service.company.name %></td>
+                  <td><%= request.created_at %></td>
                 </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
+                <% end %>
               </tbody>
             </table>
           </div>

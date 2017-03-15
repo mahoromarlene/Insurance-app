@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   get "/", to: 'welcome#index'
 
-  get "/dashboard/new", to: 'dashboards#new'
-  get "/dashboard/:id", to: 'dashboards#show'
-  post "/dashboard", to: 'dashboards#create'
+  
+  get "/dashboard", to: 'dashboards#index'
+  
 
   get "/companies", to: 'companies#index'
   get "/companies/new", to: 'companies#new'

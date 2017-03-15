@@ -1,16 +1,7 @@
 class DashboardsController < ApplicationController
-  def show
-    @dashboard = Dashboard.find_by(id: params[:id])
-  end
+  def index
+    # @insurance_services = current_user.insurance_services
+    # @requests = current_user.requests
 
-  def new
-    @dashboard = Dashboard.new
-    @request = Request.find_by(user_id: params[:user_id])
-  end
-
-  def create
-    @dashboard = Dashboard.new(user_id: current_user.id, request: params[:request])
-    @dashboard.save
-    redirect_to "/dashboards/#{@dashboard.id}"
   end
 end
