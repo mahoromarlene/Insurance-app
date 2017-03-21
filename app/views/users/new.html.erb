@@ -4,14 +4,28 @@
     <div id="logbox">
       <%= form_tag '/users', method: :post do %>
       <h1>Sign Up</h1>
-      <input type="text" name="first_name" placeholder="First name" required="required" class="input pass">
+      <input type="text" name="first_name" placeholder="First name" required="required" class="input pass" >
       <input type="text" name="last_name" placeholder="Last name" required="required" class="input pass">
       <input type="email" name="email" placeholder="Email address" required="required" class="input pass">
       <input type="password" name="password" placeholder="Choose a password" required="required" class="input pass">
       <input type="password" name="password_confirmation" placeholder="Confirm password" required="required" class="input pass">
+      <div>
+  Company name:
+  <select name="is_company">
+   <option selected="<%= @user.is_company %>" disabled selected>Select your option</option>
+   
+ </select>
+</div>
       <input type="submit" value="Create account" class="inputButton">
       <% end %>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
 

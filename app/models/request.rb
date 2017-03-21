@@ -1,4 +1,5 @@
 class Request < ApplicationRecord
-  belongs_to :user, optional: true
+  has_many :users
   belongs_to :insurance_service, optional: true
+  mount_uploader :file, FileUploader
 end

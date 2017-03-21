@@ -1,24 +1,24 @@
 <h1>New Service</h1>
 <%= form_tag "insuranceservices", method: :post do %>
-  <div>
-    Service Name:<input type="text" name="name">
-  </div>
-  <div>
-    Description:<input type="text" name="description">
-  </div>
-  <div>
-    Price:<input type="text" name="price">
-  </div>
-  <div>
-    Company name:
-    <select name="company_id">
-     <option selected="<%= @insuranceservice.company_id %>" disabled selected>Select your option</option>
-       <% @companies.each do |company| %>
-         <option value="<%= company.id %>"><%= company.name %></option>
-       <% end %>
-       </select>
-  </div>
-  <div>
-    <input type="submit" value="Create">
-  </div>
+<div>
+  Service Name:<input type="text" name="name">
+</div>
+<div>
+  Description:<input type="text" name="description">
+</div>
+<div>
+  Price:<input type="text" name="price">
+</div>
+<div>
+  Company name:
+  <select name="company_id">
+   <option selected="<%= @insuranceservice.company_id %>" disabled selected>Select your option</option>
+   <% @companies.each do |company| %>
+   <option value="<%= company.id %>"><%= company.name %></option>
+   <% end %>
+ </select>
+</div>
+<div>
+  <input type="submit" value="Create">
+</div>
 <% end %>

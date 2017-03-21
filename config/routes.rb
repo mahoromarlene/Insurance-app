@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get "/", to: 'welcome#index'
 
   
-  get "/dashboard", to: 'dashboards#index'
+  get "/company_dashboard", to: 'dashboards#company'
+  get "/client_dashboard", to: 'dashboards#client'
   
 
   get "/companies", to: 'companies#index'

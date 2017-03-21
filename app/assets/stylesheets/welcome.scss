@@ -3,8 +3,21 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.container.welcome {
-  display: -webkit-flex;
-  display: flex;
+body.welcome {
+/*css for full size background image*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
   height: 100%;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+ 
 }
+
+.lead {
+  text-align: center;
+  align-content: center;
+}
+

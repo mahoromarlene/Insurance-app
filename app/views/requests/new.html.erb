@@ -1,7 +1,7 @@
 <div class="col-md-1"></div>
 <div class="col-md-10">
 <h1>Fill out the request form</h1>
-<%= form_tag "/requests", method: :post do %>
+<%= form_tag "/requests", :html => {:multipart => true}, method: :post do %>
 
   <div class="row">
     <label for="name">First Name</label><br>
@@ -31,6 +31,9 @@
   <div class="row">
     <label for="description">Description</label><br>
     <textarea id="description" type="text" name="description" rows="10" cols="60"></textarea> 
+  </div><br>
+  <div class="row">
+    <%= file_field_tag :file %>
   </div><br>
   <div>
     <input type="submit" value="Submit">

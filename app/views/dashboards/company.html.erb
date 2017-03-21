@@ -7,7 +7,7 @@
       <div class="col-md-1"></div>
         <div class="col-md-10">
           <h1 class="page-header">Hello <%= current_user.first_name%></h1>
-
+          <p><a class="btn btn-lg btn-info" href="/companies">Browse different companies</a></p>
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
               <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
@@ -44,14 +44,14 @@
                 </tr>
               </thead>
               <tbody>
-              <% current_user.requests.each do |request| %>
+              <% current_user.insurance_services.each do |insurance_service| %>
                 <tr>
-                  <td><%= link_to request.id, "/requests/#{request.id}" %></td>
-                  <td><%= request.insurance_service.name %></td>
-                  <td><%= request.insurance_service.company.name %></td>
-                  <td><%= request.created_at %></td>
+                  <td><%= link_to insurance_service.id, "/insurance_services/#{insurance_service.id}" %></td>
+                  <td><%= insurance_service.requests.id %></td>
+                  <td><%= insurance_service.request.id %></td>
+                  <td><%= insurance_service.created_at %></td>
                 </tr>
-                <% end %>
+              <% end %>
               </tbody>
             </table>
           </div>
