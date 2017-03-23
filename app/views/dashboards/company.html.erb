@@ -41,6 +41,14 @@
                   <th>Date Created</th>
                   <th>Status</th>
                 </tr>
+                <% @company.requests.each do |request| %>
+                <tr>
+                  <td><%= link_to request.id, "/requests/#{request.id}" %></td>
+                  <td><%= request.insurance_service.name %></td>
+                  <td><%= request.insurance_service.company.name %></td>
+                  <td><%= request.created_at %></td>
+                </tr>
+                <% end %>
               </thead>
               <tbody>
                 <tr>
