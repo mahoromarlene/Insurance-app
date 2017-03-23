@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_one :company
   has_many :requests
   has_many :insurance_services, through: :requests
+  has_many :conversations
+  has_many :messages, foreign_key: :sender_id
 
   validates :first_name, presence: {message: "First_name is required"}
   validates :last_name, presence: true
