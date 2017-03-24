@@ -1,7 +1,7 @@
 <div class="col-md-1"></div>
 <div class="col-md-10">
-<h1>Fill out the request form</h1>
-<%= form_tag "/requests", :html => {:multipart => true}, method: :post do %>
+  <h1>Fill out the request form</h1>
+  <%= form_tag "/requests", :html => {:multipart => true}, method: :post do %>
 
   <div class="row">
     <label for="name">First Name</label><br>
@@ -23,20 +23,29 @@
     <label for="name">Insurance Service</label><br>
     <select name="insurance_service_id">
      <option selected="<%= @request.insurance_service_id %>" disabled selected>Select your option</option>
-       <% @insuranceservices.each do |insuranceservice| %>
-         <option id="name" type="text" name="insurance_service_id" size="30" value="<%= insuranceservice.id %>"><%= insuranceservice.name %></option>
-       <% end %>
-       </select>
-  </div><br>
-  <div class="row">
-    <label for="description">Description</label><br>
-    <textarea id="description" type="text" name="description" rows="10" cols="60"></textarea> 
-  </div><br>
-  <div class="row">
-    <%= file_field_tag :file %>
-  </div><br>
-  <div>
-    <input type="submit" value="Submit">
-  </div>
+     <% @insuranceservices.each do |insuranceservice| %>
+     <option id="name" type="text" name="insurance_service_id" size="30" value="<%= insuranceservice.id %>"><%= insuranceservice.name %></option>
+     <% end %>
+   </select>
+ </div><br>
+ <div class="row">
+   <label for="name">Company name</label><br>
+   <select name="company_id">
+   <option selected="<%= @request.insurance_service_id %>" disabled selected>Select your option</option>
+   <% @companies.each do |company| %>
+   <option id="name" type="text" name="company_id" size="30" value="<%= company.id %>"><%= company.name %></option>
+   <% end %>
+ </select>
+</div>
+<div class="row">
+  <label for="description">Description</label><br>
+  <textarea id="description" type="text" name="description" rows="10" cols="60"></textarea> 
+</div><br>
+<div class="row">
+  <%= file_field_tag :file %>
+</div><br>
+<div>
+  <input type="submit" value="Submit">
+</div>
 <% end %>
 </div>

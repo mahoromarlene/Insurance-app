@@ -12,6 +12,7 @@ class RequestsController < ApplicationController
   def new
     @request = Request.new
     @insuranceservices = InsuranceService.all
+    @companies = Company.all
   end
 
   def create

@@ -14,8 +14,7 @@ class InsuranceservicesController < ApplicationController
   end
 
   def create
-    @insuranceservice = InsuranceService.new({name: params[:name], description: params[:description], price: params[:price], company_id: params[:company_id]})
-    @insuranceservice.save
+    @insuranceservice = InsuranceService.create({name: params[:name], description: params[:description], company_id: params[:company_id]})
     redirect_to "/insuranceservices/#{@insuranceservice.id}"
   end
 
@@ -26,11 +25,11 @@ class InsuranceservicesController < ApplicationController
 
   def update
     @insuranceservice = InsuranceService.find_by(id: params[:id])
-    insuranceservice.name = params[:name]
-    insuranceservice.description = params[:description]
-    insuranceservice.price = params[:price]
-    insuranceservice.company_id = params[:company_id]
+    @insuranceservice.name = params[:name]
+    @insuranceservice.description = params[:description]
+    @insuranceservice.company_id = params[:company_id]
     @insuranceservice.save
+    redirect_to "/insuranceservices/#{@insuranceservice.id}"
   end
 
   def destroy
