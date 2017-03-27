@@ -40,7 +40,7 @@
                   <th>Insurance Service</th>
                   <th>Company</th>
                   <th>Date Created</th>
-                  <th>Status</th>
+                  <th>Approved?</th>
                 </tr>
               </thead>
               <tbody>
@@ -50,6 +50,7 @@
                   <td><%= request.insurance_service.name %></td>
                   <td><%= request.insurance_service.company.name %></td>
                   <td><%= request.created_at %></td>
+                  <td><%= request.approved %></td>
                 </tr>
                 <% end %>
               </tbody>

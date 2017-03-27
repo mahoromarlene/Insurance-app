@@ -23,4 +23,27 @@ class RequestsController < ApplicationController
       render 'new'
     end
   end
+
+  def edit 
+    @request = Request.find_by(id: params[:id])
+  end
+
+  def update
+    @request = Request.find_by(params[:id])
+    @request.insurance_service_id = params[:insurance_service_id]
+    @request.first_name = params[:first_name]
+    @request.last_name = params[:last_name]
+    @request.description = params[:description]
+    @request.email = params[:email]
+    @request.phone_number = params[:phone_number]
+    @request.save
+    redirect_to "requests/#{@request.id}"
+  end
+
+  respond_to? :js
+
+  def approved
+    @request = Request.find(params[:id])
+    @request.update(approved: true)
+  end
 end

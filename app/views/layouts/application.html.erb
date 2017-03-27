@@ -32,35 +32,31 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <% if current_user %>
-          <li><a <% if current_user.is_company %> href="/company_dashboard"><a <% else %> href="/client_dashboard"><% end %><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Dashboard</a></li>
+          <li>
+            <% if current_user.is_company %> 
+            <%= link_to "Dashboard" , "/company_dashboard" %> 
+            <% else %> 
+            <%= link_to "Dashboard", "/client_dashboard" %>
+            <% end %>
+          </li>
           <% else %>
           <% end %>
           <li class="dropdown">
             <a href="/companies" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Companies<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <% Company.all.each do |company| %>
-              <li><%= link_to company.name, "/companies/#{company.id}" %><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></li>
+              <li><%= link_to company.name, "/companies/#{company.id}" %></li>
               <% end %>
             </ul>
           </li>
           <li class="dropdown">
-            <a href="/insuranceservices" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Insurance Services <span class="caret"></span></a>
+            <a href="/insuranceservices" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <% InsuranceService.all.each do |insuranceservice| %>
-              <li><%= link_to insuranceservice.name, "/InsuranceServices/#{insuranceservice.id}" %><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></li>
+              <li><%= link_to insuranceservice.name, "/InsuranceServices/#{insuranceservice.id}" %></li>
               <% end %>
             </ul>
           </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notes <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Overview</a></li>
-              <li><a href="#">New Notiz</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Notebooks</a></li>
-            </ul>
-          </li>
-          
         </ul>
         <ul class="nav navbar-nav navbar-right">
          <%= form_tag "companies/search", class: "navbar-form navbar-left", method: :post do %>
@@ -71,10 +67,15 @@
         <% end %>
         <% if current_user %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><%= current_user.first_name %><span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          <% if current_user.is_company %>
+          <%= current_user.company.name %>
+          <% else %>
+          <%= current_user.first_name %>
+          <% end %>
+          <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="http://www.fgruber.ch/" target="_blank"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> User Settings</a></li>
-            <li><%= link_to "/logout", method: :delete do %><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span><% end %>Logout</li>
+            <li><%= link_to "/logout", method: :delete do %><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Logout<% end %></li>
           </ul>
         </li>
         <% else %>

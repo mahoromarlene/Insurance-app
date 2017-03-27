@@ -39,21 +39,29 @@
                   <th>Insurance Service</th>
                   <th>Company</th>
                   <th>Date Created</th>
-                  <th>Status</th>
+                  <th>Approved?</th>
                 </tr>
+              </thead>
+              <tbody>
                 <% @company.requests.each do |request| %>
                 <tr>
                   <td><%= link_to request.id, "/requests/#{request.id}" %></td>
                   <td><%= request.insurance_service.name %></td>
                   <td><%= request.insurance_service.company.name %></td>
                   <td><%= request.created_at %></td>
+                  <td>
+                  <% if request.approved %>
+                  <span class="approve-request">
+                    <%= link_to "true", approved_request_path(request), :method => :put, remote: true %>
+                  </span>
+                  <% else %>
+                   <span class="approve-request">
+                    <%= link_to "false", approved_request_path(request), :method => :put, remote: false %>
+                  </span>
+                  <% end %>
+                  </td>
                 </tr>
                 <% end %>
-              </thead>
-              <tbody>
-                <tr>
-                  
-                </tr>
               </tbody>
             </table>
           </div>

@@ -41,6 +41,10 @@ Rails.application.routes.draw do
   post "/login" => "sessions#create"
   delete "/logout" => "sessions#destroy"
 
-  resources :requests
+  resources :requests do
+    member do
+      put :approved
+    end
+  end
   
 end
