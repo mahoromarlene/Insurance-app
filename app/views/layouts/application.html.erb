@@ -57,6 +57,11 @@
               <% end %>
             </ul>
           </li>
+          <% if current_user %>
+          <li>
+            <%= link_to "Chat" , "/chat" %> 
+          <% else %>
+          <% end %>
         </ul>
         <ul class="nav navbar-nav navbar-right">
          <%= form_tag "companies/search", class: "navbar-form navbar-left", method: :post do %>

@@ -2,10 +2,15 @@
   <div class="col-md-6">
     <div id="logbox">
       <%= form_tag "/login", method: :post do %>
+      <div class="header">
       <h1>Login</h1>
+      </div>
       <input type="email" name="email" placeholder="Email address" required="required" class="input pass">
       <input type="password" name="password" placeholder="Choose a password" required="required" class="input pass">
       <input type="submit" value="Log In" class="inputButton">
+      <div class="panel-footer">
+        Not Registred? <a href="/signup">Register here</a></div>
+      </div>
       <% end %>
     </div>
   </div>

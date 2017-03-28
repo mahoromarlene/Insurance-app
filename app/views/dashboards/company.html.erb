@@ -8,26 +8,23 @@
         <div class="col-md-10">
           <h1 class="page-header"><%= current_user.company.name%></h1>
           <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
+            <div class="col-xs-12 col-sm-12 placeholder">
               <img src="<%= @company.logo %>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail" align="center">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
             </div>
-            <!-- <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+          </div>
+          <div class="row placeholders">
+          <div class="carousel-inner">
+            <div class="item active">
+            <div class="col-md-5 placeholder">
+              <img <% @companies.each do |company| %> src="http://placehold.it/1200x400/16a085/ffffff&text=<%= company.name%>" width="500" height="500" class="img-responsive" alt="Generic placeholder thumbnail" class="item active" <% end %>>
+              <h4><%= link_to "Companies", "/companies" %></h4> 
             </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+            <div class="col-md-5 placeholder">
+              <img <% @insuranceservices.each do |insuranceservice| %> src="http://placehold.it/1200x400/16a085/ffffff&text=<%= insuranceservice.name%>" width="500" height="500" class="img-responsive" alt="Generic placeholder thumbnail" <% end %>>
+              <h4><%= link_to "Insurance services", "/insuranceservices" %></h4>
             </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div> -->
+          </div>
+          </div>
           </div>
 
           <h2 class="sub-header">Activities</h2>

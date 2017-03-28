@@ -11,6 +11,7 @@ class CompaniesController < ApplicationController
 
   def new
     @company = Company.new
+    @users = User.all
   end
 
   def create

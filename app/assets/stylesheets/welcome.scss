@@ -3,21 +3,41 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-body.welcome {
-/*css for full size background image*/
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  
-  height: 100%;
-  text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
- 
+
+/*Slider*/
+
+
+#myCarousel .nav a small
+{
+    display: block;
+}
+#myCarousel .nav
+{
+    background: #eee;
+}
+.nav-justified > li > a
+{
+    border-radius: 0px;
+}
+.nav-pills>li[data-slide-to="0"].active a { background-color: #16a085; }
+.nav-pills>li[data-slide-to="1"].active a { background-color: #e67e22; }
+.nav-pills>li[data-slide-to="2"].active a { background-color: #2980b9; }
+.nav-pills>li[data-slide-to="3"].active a { background-color: #8e44ad; }
+
+/*Jumbotron*/
+
+.jumbotron{
+    margin-bottom:20px;
+    margin-top:20px;
+    position:center;
+   
 }
 
-.lead {
-  text-align: center;
-  align-content: center;
+.pricing {
+    text-align: center;
 }
 
+/*Page Header*/
+.page-header{
+    text-align:center;
+}

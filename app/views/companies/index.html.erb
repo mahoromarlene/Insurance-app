@@ -1,26 +1,25 @@
 <h1>List of Companies</h1>
 
+
 <div class="container">
-<div class="table-responsive">
-  <table class="table table-striped">
+ 
+  <div class="col-md-1"></div>
+    <div class="col-md-10">
     <% @companies.each do |company| %>
-  <div class="row">
-    <div class="row"> 
-      <div class="col-xs-12 col-sm-3 col-md-3">
-        <a href="#">
-          <img src="<%= company.logo %>" class="img-responsive img-box img-thumbnail" width="200" height="200"> 
-        </a>
-      </div>
-      <div class="col-xs-12 col-sm-8 col-md-8">
-        <h2><%= link_to company.name, "companies/#{company.id}" %></h2>
-        <p><%= company.description %></p>
-      </div>
-    </div>  
-  </div>
-    <% end %>
-    </table>
-    </div>
-  <% if current_user && current_user.is_company %>
-  <%= button_to "Add a new Company", "companies/new", class: "btn btn-primary", method: :get %>
-  <% end %>
+            <div class="list-group-item clearfix">
+                <div class="profile-teaser-left">
+                    <div class="profile-img"><img src="<%= company.logo %>" width="200" height="200"></div>
+                </div>
+                <div class="profile-teaser-main">
+                    <h2 class="profile-name"><%= link_to company.name, "companies/#{company.id}" %></h2>
+                    <div class="profile-info">
+                        <p><%= company.description %></p>
+                    </div>
+                </div>
+            </div><!-- item -->
+            <% end %>
+        </div>
 </div>
+<% if current_user && current_user.is_company %>
+  <%= button_to "Add a new Company", "companies/new", class: "btn btn-primary", method: :get %>
+<% end %>
