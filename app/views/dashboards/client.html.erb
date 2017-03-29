@@ -10,11 +10,11 @@
           <div class="row placeholders">
           <div class="carousel-inner">
             <div class="item active">
-            <div class="col-md-5 placeholder">
+            <div class="col-md-6 placeholder">
               <img <% @companies.each do |company| %> src="http://placehold.it/1200x400/16a085/ffffff&text=<%= company.name%>" width="500" height="500" class="img-responsive" alt="Generic placeholder thumbnail" class="item active" <% end %>>
               <h4><%= link_to "Companies", "/companies" %></h4> 
             </div>
-            <div class="col-md-5 placeholder">
+            <div class="col-md-6 placeholder">
               <img <% @insuranceservices.each do |insuranceservice| %> src="http://placehold.it/1200x400/16a085/ffffff&text=<%= insuranceservice.name%>" width="500" height="500" class="img-responsive" alt="Generic placeholder thumbnail" <% end %>>
               <h4><%= link_to "Insurance services", "/insuranceservices" %></h4>
             </div>

@@ -15,7 +15,7 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new({name: params[:name], logo: params[:logo], description: params[:description]})
+    @company = Company.new({name: params[:name], logo: params[:logo], description: params[:description], address: params[:address], email: params[:email], phone_number: params[:phone_number], pobox: params[:pobox]})
     @company.save
     redirect_to "/companies/#{@company.id}"
   end
@@ -30,6 +30,10 @@ class CompaniesController < ApplicationController
     @company.name = params[:name]
     @company.logo = params[:logo]
     @company.description = params[:description]
+    @company.address = params[:address]
+    @company.email = params[:email]
+    @company.phone_number = params[:phone_number]
+    @company.pobox = params[:pobox]
     @company.save
     redirect_to "/companies/#{@company.id}"
   end

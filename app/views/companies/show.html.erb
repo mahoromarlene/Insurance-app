@@ -6,14 +6,22 @@
     <div><img src="<%= @company.logo %>" width="100" height="100" align="center"></div>
     <h2>Who we are</h2>
     <p><%= @company.description %></p>
+    <p>Address: <%= @company.address %></p>
+    <p>P.O.Box: <%= @company.pobox %></p>
+    <p>Email: <%= @company.email %></p>
+    <p>Phone_number: <%= @company.phone_number %></p>
 
-    <h2>Services We provide:</h2>
+    <h2>Services We provide</h2>
     <% @company.insurance_services.each do |insuranceservice| %>
     <ul><%= link_to insuranceservice.name, "insuranceservices/#{insuranceservice.id}" %></ul>
     <% end %>
     <% if current_user && current_user.is_company %>
+    <div class="col-md-2">
     <%= button_to "Edit Company", "/companies/#{@company.id}/edit", class: "btn btn-primary", method: :get %>
+    </div>
+    <div class="col-md-2">
     <%= button_to "Add a new service", "/insuranceservices/new", class: "btn btn-primary", method: :get %>
+    </div>
     <% end %>
   </div>
 </div>

@@ -4,20 +4,36 @@
   <div class="col-md-10">
 <h1>Update Company</h1>
 <%= form_tag "/companies/#{@company.id}", method: :patch do %>
-<div>
+<div class="row">
   <label for="name">Company Name</label><br>
   <input id="name" type="text" name="name" size="30" value="<%= @company.name %>">
 </div>
-<div>
+<div class="row">
   <label for="logo">Logo Url</label><br>
   <input id="logo" type="text" name="logo" size="30" value="<%= @company.logo%>">
 </div>
-<div>
+<div class="row">
  <label for="description">Description</label><br>
  <textarea id="description" type="text" name="description" rows="10" cols="60" value="<%= @company.description %>"></textarea>
 </div>
-<div>
-  <label for="company_name">Choose your email</label>
+<div class="row">
+    <label for="name">Address</label><br>
+    <input id="address" type="text" name="address" size="30" value="<%= @company.address %>">
+  </div>
+  <div class="row">
+    <label for="name">P.O.Box</label><br>
+    <input id="pobox" type="text" name="pobox" size="30" value="<%= @company.pobox %>">
+  </div>
+  <div class="row">
+    <label for="name">Email</label><br>
+    <input id="email" type="email" name="email" size="30" value="<%= @company.email %>">
+  </div>
+  <div class="row">
+    <label for="name">Phone Number</label><br>
+    <input id="phone_number" type="text" name="phone_number" size="30" value="<%= @company.phone_number %>">
+  </div>
+<div class="row">
+  <label for="user_email">Choose your email</label>
   <select name="user_id">
    <option selected="<%= @company.user_id %>" disabled selected>Select your option</option>
    <% @users.each do |user| %>
@@ -25,7 +41,7 @@
    <% end %>
  </select>
 </div>
-<div>
+<div class="row">
   <input type="submit" value="Update">
 </div>
 <% end %>

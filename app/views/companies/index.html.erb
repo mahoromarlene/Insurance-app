@@ -1,5 +1,4 @@
-<h1>List of Companies</h1>
-
+<h1>There is <%= @companies.count %> Companies</h1>
 
 <div class="container">
    
@@ -13,7 +12,13 @@
         <div class="profile-teaser-main">
             <h2 class="profile-name"><%= link_to company.name, "companies/#{company.id}" %></h2>
             <div class="profile-info">
-                <p><%= company.description %></p>
+                <p><%= truncate company.description, length: 150 %></p>
+                <p>
+                <div>Address: <%= company.address %></div>
+                <div>P.O.Box: <%= company.pobox %></div>
+                <div>Email: <%= company.email %></div>
+                <div>phone_number: <%= company.phone_number %></div>
+                </p>
             </div>
         </div>
     </div><!-- item -->

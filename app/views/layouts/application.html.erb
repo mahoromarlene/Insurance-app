@@ -96,5 +96,43 @@
 <div class="container">
   <%= yield %>
 </div>
+
+<section class="footer">
+    <div class="container">
+      <div class="row">
+          <div class="col-lg-4  col-md-4 col-sm-4">
+              <div class="footer_dv">
+                  <h4>Companies</h4>
+                  <ul>
+                  <% Company.all.each do |company| %>
+                      <li><a href="tosiba-printer-support.php"><%= company.name %></a></li>
+                  <% end %>  
+                    </ul>
+                </div>
+            </div>
+          <div class="col-lg-4  col-md-4 col-sm-4">
+              <div class="footer_dv">
+                  <h4>Services</h4>
+                  <ul>
+                      <% InsuranceService.all[0..4].each do |insurancceservice| %>
+                        <li><a href="hp-printer-support.php"><%= insurancceservice.name %></a></li>
+                      <% end %>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4  col-md-4 col-sm-4">
+              <div class="footer_dv">
+                  <h4>Services</h4>
+                  <ul>
+                      <% InsuranceService.all[5..9].each do |insurancceservice| %>
+                        <li><a href="hp-printer-support.php"><%= insurancceservice.name %></a></li>
+                      <% end %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 </body>
 </html>
