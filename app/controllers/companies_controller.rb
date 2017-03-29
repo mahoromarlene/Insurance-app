@@ -22,6 +22,7 @@ class CompaniesController < ApplicationController
 
   def edit
     @company = Company.find_by(id: params[:id])
+    @users = User.all
   end
 
   def update

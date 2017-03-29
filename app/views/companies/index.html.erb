@@ -2,24 +2,25 @@
 
 
 <div class="container">
- 
+   
   <div class="col-md-1"></div>
-    <div class="col-md-10">
+  <div class="col-md-10">
     <% @companies.each do |company| %>
-            <div class="list-group-item clearfix">
-                <div class="profile-teaser-left">
-                    <div class="profile-img"><img src="<%= company.logo %>" width="200" height="200"></div>
-                </div>
-                <div class="profile-teaser-main">
-                    <h2 class="profile-name"><%= link_to company.name, "companies/#{company.id}" %></h2>
-                    <div class="profile-info">
-                        <p><%= company.description %></p>
-                    </div>
-                </div>
-            </div><!-- item -->
-            <% end %>
+    <div class="list-group-item clearfix">
+        <div class="profile-teaser-left">
+            <div class="profile-img"><img src="<%= company.logo %>" width="200" height="200"></div>
         </div>
+        <div class="profile-teaser-main">
+            <h2 class="profile-name"><%= link_to company.name, "companies/#{company.id}" %></h2>
+            <div class="profile-info">
+                <p><%= company.description %></p>
+            </div>
+        </div>
+    </div><!-- item -->
+    <% end %>
+    <% if current_user && current_user.is_company %>
+    <%= button_to "Add a new Company", "companies/new", class: "btn btn-primary", method: :get %>
+    <% end %>
 </div>
-<% if current_user && current_user.is_company %>
-  <%= button_to "Add a new Company", "companies/new", class: "btn btn-primary", method: :get %>
-<% end %>
+</div>
+

@@ -2,69 +2,71 @@
   <link rel="stylesheet" type="text/css" href="dashboard.scss">
 </head>
 
-    <div class="container-fluid">
-      <div class="row">
-      <div class="col-md-1"></div>
-        <div class="col-md-10">
-          <h1 class="page-header"><%= current_user.company.name%></h1>
-          <div class="row placeholders">
-            <div class="col-xs-12 col-sm-12 placeholder">
-              <img src="<%= @company.logo %>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail" align="center">
-            </div>
-          </div>
-          <div class="row placeholders">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h1 class="page-header"><%= current_user.company.name%></h1>
+      <div class="row placeholders">
+        <div>
+          <img src="<%= @company.logo %>" width="200" height="200" align="center">
+        </div>
+      </div>
+      <div class="row placeholders">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div class="item active">
-            <div class="col-md-5 placeholder">
-              <img <% @companies.each do |company| %> src="http://placehold.it/1200x400/16a085/ffffff&text=<%= company.name%>" width="500" height="500" class="img-responsive" alt="Generic placeholder thumbnail" class="item active" <% end %>>
-              <h4><%= link_to "Companies", "/companies" %></h4> 
+              <div class="col-md-6 placeholder">
+                <img <% @companies.each do |company| %> src="http://placehold.it/1200x400/16a085/ffffff&text=<%= company.name%>" width="500" height="500" class="img-responsive" alt="Generic placeholder thumbnail" class="item active" <% end %>>
+                <h4><%= link_to "Companies", "/companies" %></h4> 
+              </div>
+              <div class="col-md-6 placeholder">
+                <img <% @insuranceservices.each do |insuranceservice| %> src="http://placehold.it/1200x400/16a085/ffffff&text=<%= insuranceservice.name%>" width="500" height="500" class="img-responsive" alt="Generic placeholder thumbnail" <% end %>>
+                <h4><%= link_to "Insurance services", "/insuranceservices" %></h4>
+              </div>
             </div>
-            <div class="col-md-5 placeholder">
-              <img <% @insuranceservices.each do |insuranceservice| %> src="http://placehold.it/1200x400/16a085/ffffff&text=<%= insuranceservice.name%>" width="500" height="500" class="img-responsive" alt="Generic placeholder thumbnail" <% end %>>
-              <h4><%= link_to "Insurance services", "/insuranceservices" %></h4>
-            </div>
           </div>
-          </div>
-          </div>
+        </div>
+        </div>
 
-          <h2 class="sub-header">Activities</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Request No</th>
-                  <th>Insurance Service</th>
-                  <th>Company</th>
-                  <th>Date Created</th>
-                  <th>Approved?</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @company.requests.each do |request| %>
-                <tr>
-                  <td><%= link_to request.id, "/requests/#{request.id}" %></td>
-                  <td><%= request.insurance_service.name %></td>
-                  <td><%= request.insurance_service.company.name %></td>
-                  <td><%= request.created_at %></td>
-                  <td>
+        <h2 class="sub-header">Activities</h2>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Request No</th>
+                <th>Insurance Service</th>
+                <th>Company</th>
+                <th>Date Created</th>
+                <th>Approved?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @company.requests.each do |request| %>
+              <tr>
+                <td><%= link_to request.id, "/requests/#{request.id}" %></td>
+                <td><%= request.insurance_service.name %></td>
+                <td><%= request.insurance_service.company.name %></td>
+                <td><%= request.created_at %></td>
+                <td>
                   <% if request.approved %>
                   <span class="approve-request">
                     <%= link_to "true", approved_request_path(request), :method => :put, remote: true %>
                   </span>
                   <% else %>
-                   <span class="approve-request">
+                  <span class="approve-request">
                     <%= link_to "false", approved_request_path(request), :method => :put, remote: false %>
                   </span>
                   <% end %>
-                  </td>
-                </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
+  </div>
 
 
 

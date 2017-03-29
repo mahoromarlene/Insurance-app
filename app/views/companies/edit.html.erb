@@ -1,6 +1,10 @@
+<div class="container">
+
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
 <h1>Update Company</h1>
 <%= form_tag "/companies/#{@company.id}", method: :patch do %>
-<div class="row">
+<div>
   <label for="name">Company Name</label><br>
   <input id="name" type="text" name="name" size="30" value="<%= @company.name %>">
 </div>
@@ -9,10 +13,21 @@
   <input id="logo" type="text" name="logo" size="30" value="<%= @company.logo%>">
 </div>
 <div>
- <label for="description">Description</label>
- <textarea id="description" type="text" name="description" rows="10" cols="60" value="<%= @company.description %>"></textarea><br>
+ <label for="description">Description</label><br>
+ <textarea id="description" type="text" name="description" rows="10" cols="60" value="<%= @company.description %>"></textarea>
+</div>
+<div>
+  <label for="company_name">Choose your email</label>
+  <select name="user_id">
+   <option selected="<%= @company.user_id %>" disabled selected>Select your option</option>
+   <% @users.each do |user| %>
+     <option id="name" type="text" name="user_id" size="30" value="<%= user.id %>"><%= user.email %></option>
+   <% end %>
+ </select>
 </div>
 <div>
   <input type="submit" value="Update">
 </div>
 <% end %>
+</div>
+</div>
