@@ -2,17 +2,20 @@
  
   <div class="col-md-1"></div>
   <div class="col-md-10">
+  <div class="list-group-item clearfix">
+  <div class="profile-teaser-main">
     <h1><%= @insuranceservice.name %></h1>
     <h2>Service Details</h2>
     <p><%= @insuranceservice.description %></p>
     Company name:<p><%= @insuranceservice.company.name %></p>
-
-    <div>
+  </div>
+  </div>
+    <div class="col-md-2">
       <% if current_user && current_user.is_company %>
       <%= button_to "Edit service", "/insuranceservices/#{@insuranceservice.id}/edit", class: "btn btn-primary", method: :get %>
       <% end %>
     </div>
-    <div>
+    <div class="col-md-2">
       <% if current_user %>
       <%= button_to "Make a Request", "/requests/new", class: "btn btn-primary", method: :get %>
       <% end %>

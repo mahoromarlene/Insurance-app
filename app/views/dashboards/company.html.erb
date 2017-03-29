@@ -35,8 +35,8 @@
             <thead>
               <tr>
                 <th>Request No</th>
+                <th>Client</th>
                 <th>Insurance Service</th>
-                <th>Company</th>
                 <th>Date Created</th>
                 <th>Approved?</th>
               </tr>
@@ -45,8 +45,8 @@
               <% @company.requests.each do |request| %>
               <tr>
                 <td><%= link_to request.id, "/requests/#{request.id}" %></td>
+                <td><%= request.first_name %> <%= request.last_name %></td>
                 <td><%= request.insurance_service.name %></td>
-                <td><%= request.insurance_service.company.name %></td>
                 <td><%= request.created_at %></td>
                 <td>
                   <% if request.approved %>

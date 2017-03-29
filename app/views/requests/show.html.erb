@@ -4,6 +4,8 @@
 <h2><%= @request.first_name %> <%= @request.last_name %></h2>
 <p>Email: <%= @request.email %></p>
 <p>phone_number: <%= @request.phone_number %></p>
+<p>Service: <%= @request.insurance_service.name %></p>
+<p>Company: <%= @request.company.name %></p>
 <p>Description:<%= @request.description %></p>
 
 <%= button_to "Edit Request", "/requests/#{@request.id}/edit", class: "btn btn-primary", method: :get %>

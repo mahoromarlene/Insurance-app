@@ -2,8 +2,10 @@
 
   <div class="col-md-1"></div>
   <div class="col-md-10">
+  <div class="list-group-item clearfix">
+  <div class="profile-teaser-main">
     <h1><%= @company.name %></h1>
-    <div><img src="<%= @company.logo %>" width="100" height="100" align="center"></div>
+    <div class="logo"><img src="<%= @company.logo %>" width="100" height="100" align="center"></div>
     <h2>Who we are</h2>
     <p><%= @company.description %></p>
     <p>Address: <%= @company.address %></p>
@@ -15,6 +17,8 @@
     <% @company.insurance_services.each do |insuranceservice| %>
     <ul><%= link_to insuranceservice.name, "insuranceservices/#{insuranceservice.id}" %></ul>
     <% end %>
+    </div>
+    </div>
     <% if current_user && current_user.is_company %>
     <div class="col-md-2">
     <%= button_to "Edit Company", "/companies/#{@company.id}/edit", class: "btn btn-primary", method: :get %>

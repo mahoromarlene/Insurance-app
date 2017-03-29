@@ -26,10 +26,12 @@ class RequestsController < ApplicationController
 
   def edit 
     @request = Request.find_by(id: params[:id])
+    @insuranceservices = InsuranceService.all
+    @companies = Company.all
   end
 
   def update
-    @request = Request.find_by(params[:id])
+    @request = Request.find_by(id: params[:id])
     @request.insurance_service_id = params[:insurance_service_id]
     @request.first_name = params[:first_name]
     @request.last_name = params[:last_name]
@@ -37,7 +39,7 @@ class RequestsController < ApplicationController
     @request.email = params[:email]
     @request.phone_number = params[:phone_number]
     @request.save
-    redirect_to "requests/#{@request.id}"
+    redirect_to "/requests/#{@request.id}"
   end
 
   respond_to? :js

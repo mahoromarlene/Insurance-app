@@ -22,3 +22,4 @@ class Conversation < ApplicationRecord
     user == recipient ? sender : recipient
   end
 end
+
