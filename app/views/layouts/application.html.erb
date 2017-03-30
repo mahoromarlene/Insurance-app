@@ -53,7 +53,7 @@
             <a href="/insuranceservices" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <% InsuranceService.all.each do |insuranceservice| %>
-              <li><%= link_to insuranceservice.name, "/InsuranceServices/#{insuranceservice.id}" %></li>
+              <li><%= link_to insuranceservice.name, "/insuranceservices/#{insuranceservice.id}" %></li>
               <% end %>
             </ul>
           </li>
@@ -74,7 +74,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
           <% if current_user.is_company %>
-          <%= current_user.company.name %>
+          <%= current_user.first_name %>
           <% else %>
           <%= current_user.first_name %>
           <% end %>
@@ -105,7 +105,7 @@
                   <h4>Companies</h4>
                   <ul>
                   <% Company.all.each do |company| %>
-                      <li><a href="tosiba-printer-support.php"><%= company.name %></a></li>
+                      <li><%= link_to company.name, "/companies/#{company.id}" %></li>
                   <% end %>  
                     </ul>
                 </div>
@@ -114,8 +114,8 @@
               <div class="footer_dv">
                   <h4>Services</h4>
                   <ul>
-                      <% InsuranceService.all[0..4].each do |insurancceservice| %>
-                        <li><a href="hp-printer-support.php"><%= insurancceservice.name %></a></li>
+                      <% InsuranceService.all[0..4].each do |insuranceservice| %>
+                        <li><%= link_to insuranceservice.name, "/insuranceservices/#{insuranceservice.id}" %></li>
                       <% end %>
                     </ul>
                 </div>
@@ -124,8 +124,8 @@
               <div class="footer_dv">
                   <h4>Services</h4>
                   <ul>
-                      <% InsuranceService.all[5..9].each do |insurancceservice| %>
-                        <li><a href="hp-printer-support.php"><%= insurancceservice.name %></a></li>
+                      <% InsuranceService.all[5..9].each do |insuranceservice| %>
+                        <li><%= link_to insuranceservice.name, "/insuranceservices/#{insuranceservice.id}" %></li>
                       <% end %>
                     </ul>
                 </div>

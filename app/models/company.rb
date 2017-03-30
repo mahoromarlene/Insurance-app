@@ -4,5 +4,6 @@ class Company < ApplicationRecord
   has_many :requests
 
   validates :name, presence: true
+  validates :logo, presence: true
   validates :description, presence: true
 end

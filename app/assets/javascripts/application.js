@@ -40,7 +40,7 @@
 
 $(document).ready(function () {
     $('#myCarousel').carousel({
-        interval: 4000
+        interval: 3000
     });
 
     var clickEvent = false;
